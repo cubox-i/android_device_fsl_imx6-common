@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-COMMON_IMX := device/fsl/imx-common
+COMMON_IMX := device/fsl/imx6-common
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/generic.mk)
@@ -82,8 +82,8 @@ PRODUCT_PACKAGES += \
 
 # keyboard mapping files.
 PRODUCT_PACKAGES += \
- Dell_Dell_USB_Keyboard.kcm \
- mxckpd.kcm \
+    Dell_Dell_USB_Keyboard.kcm \
+    mxckpd.kcm \
 
 #audio related lib
 PRODUCT_PACKAGES += \
@@ -314,7 +314,7 @@ PRODUCT_PACKAGES += \
 
 # for CtsVerifier
 PRODUCT_PACKAGES += \
- com.android.future.usb.accessory
+    com.android.future.usb.accessory
 
 # ril related libs
 PRODUCT_PACKAGES += \
@@ -323,9 +323,9 @@ PRODUCT_PACKAGES += \
 
 # init
 PRODUCT_COPY_FILES += \
-    $(COMMON_IMX)/rootdir/imx6/etc/init.rc:root/init.rc \
-    $(COMMON_IMX)/rootdir/imx6/etc/init.usb.rc:root/init.freescale.usb.rc \
-    $(COMMON_IMX)/rootdir/imx6/etc/ueventd.freescale.rc:root/ueventd.freescale.rc
+    $(COMMON_IMX)/rootdir/etc/init.rc:root/init.rc \
+    $(COMMON_IMX)/rootdir/etc/init.usb.rc:root/init.freescale.usb.rc \
+    $(COMMON_IMX)/rootdir/etc/ueventd.freescale.rc:root/ueventd.freescale.rc
 
 # prebuilts
 PRODUCT_COPY_FILES += \
