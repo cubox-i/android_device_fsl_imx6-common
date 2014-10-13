@@ -33,8 +33,8 @@ PRODUCT_PACKAGES += \
     Email \
     FSLOta \
     CactusPlayer \
-    WfdSink  \
-    wfd  \
+    WfdSink \
+    wfd \
     ethernet \
     libfsl_wfd.so \
     fsl.imx.jar \
@@ -60,7 +60,7 @@ PRODUCT_PACKAGES += \
     wpa_supplicant_overlay.conf \
     dispd \
     ts_calibrator \
-    libion  \
+    libion \
     display_mode_fb0.conf \
     display_mode_fb2.conf \
     display_mode_fb4.conf
@@ -83,7 +83,7 @@ PRODUCT_PACKAGES += \
 # keyboard mapping files.
 PRODUCT_PACKAGES += \
     Dell_Dell_USB_Keyboard.kcm \
-    mxckpd.kcm \
+    mxckpd.kcm
 
 #audio related lib
 PRODUCT_PACKAGES += \
@@ -112,7 +112,7 @@ PRODUCT_PACKAGES += \
     power.imx6 \
     audio.r_submix.default \
     libbt-vendor \
-    magd  \
+    magd \
     consumerir.imx6
 
 # Bluetooth firmware files.
@@ -122,13 +122,13 @@ PRODUCT_PACKAGES += \
     RamPatch_ar3001 \
     ar3kbdaddr_ar3002 \
     PS_ASIC_ar3002 \
-    RamPatch_ar3002 \
+    RamPatch_ar3002
 
 # Freescale VPU firmware files.
 PRODUCT_PACKAGES += \
     libvpu \
     vpu_fw_imx6q.bin \
-    vpu_fw_imx6d.bin \
+    vpu_fw_imx6d.bin
 
 # Atheros wifi firmwre files.
 PRODUCT_PACKAGES += \
@@ -173,8 +173,8 @@ PRODUCT_PACKAGES += \
     libdrmframework_jni \
     libdrmframework \
     libdrmpassthruplugin \
-    libfwdlockengine \
-    
+    libfwdlockengine
+
 # power tool
 PRODUCT_PACKAGES += \
     powerdebug
@@ -274,7 +274,7 @@ omx_libs := \
     lib_flac_parser_arm11_elinux.3.0 \
     lib_wav_parser_arm11_elinux.3.0 \
     lib_omx_ac3toiec937_arm11_elinux \
-    lib_omx_ec3_dec_v2_arm11_elinux \
+    lib_omx_ec3_dec_v2_arm11_elinux
 
 # Omx excluded libs
 omx_excluded_libs := \
@@ -293,6 +293,18 @@ omx_excluded_libs := \
     lib_ddplus_dec_v2_arm12_elinux
 
 PRODUCT_PACKAGES += $(omx_libs) $(omx_excluded_libs)
+
+# ubi
+PRODUCT_PACKAGES += \
+    libubi \
+    ubinize \
+    ubiformat \
+    ubiattach \
+    ubidetach \
+    ubiupdatevol \
+    ubimkvol \
+    ubinfo \
+    mkfs.ubifs
 
 # FUSE based emulated sdcard daemon
 PRODUCT_PACKAGES += sdcard
