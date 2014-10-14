@@ -20,7 +20,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/generic.mk)
 $(call inherit-product, $(TOPDIR)frameworks/base/data/sounds/AllAudio.mk)
 
-# Android infrastructures
+# android infrastructures
 PRODUCT_PACKAGES += \
     LiveWallpapers \
     LiveWallpapersPicker \
@@ -65,7 +65,7 @@ PRODUCT_PACKAGES += \
     display_mode_fb2.conf \
     display_mode_fb4.conf
 
-# Debug utils
+# debug utils
 PRODUCT_PACKAGES += \
     busybox \
     bash \
@@ -74,7 +74,7 @@ PRODUCT_PACKAGES += \
     libefence \
     powerdebug
 
-# Wifi AP mode
+# wifi AP mode
 PRODUCT_PACKAGES += \
     hostapd \
     rtl_hostapd \
@@ -85,7 +85,7 @@ PRODUCT_PACKAGES += \
     Dell_Dell_USB_Keyboard.kcm \
     mxckpd.kcm
 
-#audio related lib
+# audio related lib
 PRODUCT_PACKAGES += \
     audio.primary.imx6 \
     audio_policy.conf \
@@ -124,13 +124,13 @@ PRODUCT_PACKAGES += \
     PS_ASIC_ar3002 \
     RamPatch_ar3002
 
-# Freescale VPU firmware files.
+# freescale VPU firmware files.
 PRODUCT_PACKAGES += \
     libvpu \
     vpu_fw_imx6q.bin \
     vpu_fw_imx6d.bin
 
-# Atheros wifi firmwre files.
+# atheros wifi firmwre files.
 PRODUCT_PACKAGES += \
     fw-3 \
     bdata \
@@ -141,7 +141,7 @@ PRODUCT_PACKAGES += \
     ath6kl_sdio.ko \
     check_wifi_mac.sh
 
-# Atheros wifi tool
+# atheros wifi tool
 PRODUCT_PACKAGES += \
     abtfilt \
     artagent \
@@ -150,7 +150,7 @@ PRODUCT_PACKAGES += \
     psatUtil \
     wmiconfig
 
-# Intel PCIE wifi firmware
+# intel PCIE wifi firmware
 PRODUCT_PACKAGES += \
     iwlwifi-6000-4.ucode \
     iwlwifi-5000-5.ucode \
@@ -333,6 +333,11 @@ PRODUCT_PACKAGES += \
     libreference-ril-zte.so \
     libruntime-ril-port
 
+# aosp charger
+PRODUCT_PACKAGES += \
+    charger_res_images \
+    charger
+
 # init
 PRODUCT_COPY_FILES += \
     $(COMMON_IMX)/rootdir/etc/init.rc:root/init.rc \
@@ -364,4 +369,4 @@ PRODUCT_DEFAULT_DEV_CERTIFICATE := \
     $(COMMON_IMX)/rootdir/security/testkey
 
 # include a google recommand heap config file.
-include frameworks/native/build/tablet-7in-hdpi-1024-dalvik-heap.mk
+include frameworks/native/build/tablet-7in-xhdpi-2048-dalvik-heap.mk
