@@ -16,12 +16,13 @@
 
 COMMON_IMX := device/fsl/imx6-common
 
+PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
+
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/generic.mk)
-$(call inherit-product, $(TOPDIR)frameworks/base/data/sounds/AllAudio.mk)
+$(call inherit-product, $(ANDROID_BUILD_TOP)/frameworks/base/data/sounds/AllAudio.mk)
 
 # android infrastructures
-PRODUCT_PACKAGES += \
+PRODUCT_PACKAGES := \
     LiveWallpapers \
     LiveWallpapersPicker \
     MagicSmokeWallpapers \
@@ -112,17 +113,7 @@ PRODUCT_PACKAGES += \
     power.imx6 \
     audio.r_submix.default \
     libbt-vendor \
-    magd \
     consumerir.imx6
-
-# Bluetooth firmware files.
-PRODUCT_PACKAGES += \
-    ar3kbdaddr_ar3001 \
-    PS_ASIC_ar3001 \
-    RamPatch_ar3001 \
-    ar3kbdaddr_ar3002 \
-    PS_ASIC_ar3002 \
-    RamPatch_ar3002
 
 # freescale VPU firmware files.
 PRODUCT_PACKAGES += \
@@ -140,21 +131,6 @@ PRODUCT_PACKAGES += \
     compat.ko \
     ath6kl_sdio.ko \
     check_wifi_mac.sh
-
-# atheros wifi tool
-PRODUCT_PACKAGES += \
-    abtfilt \
-    artagent \
-    ath6kl-fwlog-record \
-    athtestcmd \
-    psatUtil \
-    wmiconfig
-
-# intel PCIE wifi firmware
-PRODUCT_PACKAGES += \
-    iwlwifi-6000-4.ucode \
-    iwlwifi-5000-5.ucode \
-    iwlagn.ko
 
 # gps related lib
 PRODUCT_PACKAGES += \
@@ -179,18 +155,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     powerdebug
 
-# gpu debug tool
-PRODUCT_PACKAGES += \
-    gmem_info
-
-# Omx related libs, please align to device/fsl/proprietary/omx/fsl-omx.mk
+# Omx related libs
 omx_libs := \
     core_register \
     component_register \
     contentpipe_register \
     fslomx.cfg \
-    media_profiles.xml \
-    media_codecs.xml \
     ComponentRegistry.txt \
     lib_omx_player_arm11_elinux \
     lib_omx_client_arm11_elinux \
@@ -294,18 +264,6 @@ omx_excluded_libs := \
 
 PRODUCT_PACKAGES += $(omx_libs) $(omx_excluded_libs)
 
-# ubi
-PRODUCT_PACKAGES += \
-    libubi \
-    ubinize \
-    ubiformat \
-    ubiattach \
-    ubidetach \
-    ubiupdatevol \
-    ubimkvol \
-    ubinfo \
-    mkfs.ubifs
-
 # FUSE based emulated sdcard daemon
 PRODUCT_PACKAGES += sdcard
 
@@ -328,21 +286,14 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     com.android.future.usb.accessory
 
-# ril related libs
+# ril related lib
 PRODUCT_PACKAGES += \
-    libreference-ril-zte.so \
     libruntime-ril-port
 
-# aosp charger
-PRODUCT_PACKAGES += \
-    charger_res_images \
-    charger
-
 # init
-PRODUCT_COPY_FILES += \
-    $(COMMON_IMX)/rootdir/etc/init.rc:root/init.rc \
-    $(COMMON_IMX)/rootdir/etc/init.usb.rc:root/init.freescale.usb.rc \
-    $(COMMON_IMX)/rootdir/etc/ueventd.freescale.rc:root/ueventd.freescale.rc
+PRODUCT_COPY_FILES := \
+    $(COMMON_IMX)/rootdir/init.usb.freescale.rc:root/init.usb.freescale.rc \
+    $(COMMON_IMX)/rootdir/ueventd.freescale.rc:root/ueventd.freescale.rc
 
 # prebuilts
 PRODUCT_COPY_FILES += \
@@ -362,11 +313,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_TAGS += dalvik.gc.type-precise
 
 # for property
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES := \
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mtp
 
-PRODUCT_DEFAULT_DEV_CERTIFICATE := \
+PRODUCT_DEFAULT_DEV_CERTIFICATE += \
     $(COMMON_IMX)/rootdir/security/testkey
-
-# include a google recommand heap config file.
-include frameworks/native/build/tablet-7in-xhdpi-2048-dalvik-heap.mk
