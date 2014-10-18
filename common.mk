@@ -19,7 +19,7 @@ COMMON_IMX := device/fsl/imx6-common
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
-$(call inherit-product, $(ANDROID_BUILD_TOP)/frameworks/base/data/sounds/AllAudio.mk)
+$(call inherit-product, frameworks/base/data/sounds/AllAudio.mk)
 
 # android infrastructures
 PRODUCT_PACKAGES := \
